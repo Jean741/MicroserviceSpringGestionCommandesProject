@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api/product")
+@RequestMapping("/api/order")
 @CrossOrigin("*")
 public class OrderController {
 
@@ -18,7 +18,7 @@ public class OrderController {
 
 
     @PostMapping("/placeOrder/{userId}")
-    ResponseEntity<Object> placeOrder(@RequestBody Map<Long,Integer> mapProductsAndQuantites ,@PathVariable Long userId){
+    public ResponseEntity<Object> placeOrder(@RequestBody Map<Long,Integer> mapProductsAndQuantites ,@PathVariable Long userId){
         return orderService.placeOrder(mapProductsAndQuantites,userId);
     }
 }

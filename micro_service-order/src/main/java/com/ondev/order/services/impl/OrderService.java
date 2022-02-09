@@ -35,7 +35,8 @@ public class OrderService implements IOrderService {
     }
 
     private Order createOrder(Long id , Integer quantity , Long userId,double totalPrice){
-        return  Order.builder().id(id)
+        return  Order.builder()
+        		.productId(id)
                 .isOrderPaid(false)
                 .userId(userId)
                 .orderDate(LocalDate.now())
