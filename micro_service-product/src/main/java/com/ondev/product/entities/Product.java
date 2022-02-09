@@ -23,7 +23,6 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-@JsonIgnoreProperties("country")
 public class Product {
 
     @Id

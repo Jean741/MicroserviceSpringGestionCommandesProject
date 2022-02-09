@@ -5,7 +5,11 @@ import org.springframework.stereotype.Repository;
 
 import com.ondev.product.entities.Product;
 
+import java.util.List;
+
 @Repository
 public interface ProductRepository extends JpaRepository<Product,Long> {
+
+    List<Product> findAllByIdIn(List<Long> idsProduct);
 
 }

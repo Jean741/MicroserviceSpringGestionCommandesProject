@@ -1,6 +1,7 @@
 package com.ondev.product.controller;
 
 import java.io.IOException;
+import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.CrossOrigin;
@@ -27,6 +28,12 @@ public class ProductController {
     @PostMapping("/add")
     public Product addProduct(@RequestBody Product product){
         return productService.addProduct(product);
+    }
+
+
+    @PostMapping("/getAllProductsByIds")
+    public List<Product> getAllProductsByIds(@RequestBody List<Long> idsProduct) {
+        return productService.getAllProductsByIds(idsProduct);
     }
 
 }
