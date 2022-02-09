@@ -4,9 +4,7 @@ package com.ondev.order.controller;
 import com.ondev.order.services.IOrderService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.CrossOrigin;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
@@ -18,7 +16,9 @@ public class OrderController {
     @Autowired
     private IOrderService orderService;
 
-    ResponseEntity<Object> placeOrder(Map<Long,Integer> mapProductsAndQuantites , Long userId){
+
+    @PostMapping("/placeOrder/{userId}")
+    ResponseEntity<Object> placeOrder(@RequestBody Map<Long,Integer> mapProductsAndQuantites ,@PathVariable Long userId){
         return orderService.placeOrder(mapProductsAndQuantites,userId);
     }
 }
