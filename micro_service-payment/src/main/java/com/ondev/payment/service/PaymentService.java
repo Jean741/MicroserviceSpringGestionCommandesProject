@@ -63,7 +63,6 @@ public class PaymentService implements IPaymentService {
 		Payment payment = paymentRepository.save(Payment.builder()
 				.orderId(orderBean.getId())
 				.amount(orderBean.getTotalPrice())
-				.datePayement(LocalDateTime.now())
 				.build());
 		orderBean.setOrderPaid(true);
 		ResponseEntity<OrderBean> orderBeanPayedResponseEntity = orderProxy.updateOrder(orderBean);
