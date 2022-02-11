@@ -1,4 +1,7 @@
-package com.ondev.order.bean;
+package com.ondev.payment.bean;
+
+import java.time.LocalDate;
+import java.time.LocalDateTime;
 
 import lombok.AccessLevel;
 import lombok.AllArgsConstructor;
@@ -12,10 +15,13 @@ import lombok.experimental.FieldDefaults;
 @NoArgsConstructor
 @AllArgsConstructor
 @FieldDefaults(level = AccessLevel.PRIVATE)
-public class ProductBean {
-
-    Long id;
-    String name;
-    long quantity;
-    double price;
+public class OrderBean {
+	Long id;
+	Long productId;
+	Long number;
+	boolean isOrderPaid;
+	Long userId;
+	LocalDateTime orderDate;
+	int quantity;
+	double totalPrice;
 }

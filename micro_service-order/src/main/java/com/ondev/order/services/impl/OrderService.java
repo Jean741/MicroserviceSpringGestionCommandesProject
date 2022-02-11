@@ -11,6 +11,7 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Map;
@@ -39,8 +40,18 @@ public class OrderService implements IOrderService {
         		.productId(id)
                 .isOrderPaid(false)
                 .userId(userId)
-                .orderDate(LocalDate.now())
+                .orderDate(LocalDateTime.now())
                 .quantity(quantity)
                 .totalPrice(totalPrice).build();
     }
+
+	@Override
+	public ResponseEntity<Order> updateOrder(Order order) {
+		return new ResponseEntity<>(orderRepository.saveAndFlush(order),HttpStatus.OK);
+	}
+
+	@Override
+	public ResponseEntity<Order> getOrderById(Long orderId) {
+		return new ResponseEntity<>(orderRepository.findById(orderId).get() ,HttpStatus.OK);
+	}
 }
