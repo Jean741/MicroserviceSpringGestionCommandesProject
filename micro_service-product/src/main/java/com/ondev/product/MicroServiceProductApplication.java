@@ -4,11 +4,13 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 import com.ondev.product.dao.ProductRepository;
 import com.ondev.product.entities.Product;
 
 @SpringBootApplication
+@EnableDiscoveryClient
 public class MicroServiceProductApplication implements CommandLineRunner{
 
 	@Autowired
