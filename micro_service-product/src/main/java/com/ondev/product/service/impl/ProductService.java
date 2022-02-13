@@ -3,6 +3,7 @@ package com.ondev.product.service.impl;
 import java.util.List;
 import java.util.Optional;
 
+import com.ondev.product.config.ApplicationPropertiesConfig;
 import com.ondev.product.service.IProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -14,10 +15,12 @@ import com.ondev.product.entities.Product;
 public class ProductService implements IProductService {
 
     private ProductRepository productRepository;
+    private ApplicationPropertiesConfig propertiesConfig;
 
     @Autowired
-    public ProductService(ProductRepository productRepository) {
+    public ProductService(ProductRepository productRepository, ApplicationPropertiesConfig propertiesConfig) {
     	this.productRepository = productRepository;
+        this.propertiesConfig = propertiesConfig;
     }
 
 	@Override
@@ -37,8 +40,8 @@ public class ProductService implements IProductService {
 	}
 
 	@Override
-	public List<Product> getAllProduct() {
-		return productRepository.findAll();
+	public List<Product> getAllProducts() {
+		return productRepository.findAll().subList(0,propertiesConfig.getProductSize());
 	}
 
 	@Override

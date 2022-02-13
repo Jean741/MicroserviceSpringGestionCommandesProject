@@ -1,6 +1,5 @@
 package com.ondev.product.controller;
 
-import java.io.IOException;
 import java.util.List;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -35,6 +34,11 @@ public class ProductController {
     @PostMapping("/getAllProductsByIds")
     public List<Product> getAllProductsByIds(@RequestBody List<Long> idsProduct) {
         return productService.getAllProductsByIds(idsProduct);
+    }
+
+    @GetMapping("/getAllProducts")
+    public List<Product> getAllProducts() {
+        return productService.getAllProducts();
     }
 
 }
