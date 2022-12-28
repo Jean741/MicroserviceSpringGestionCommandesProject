@@ -1,10 +1,8 @@
 package com.ondev.order.services;
 
+import com.ondev.order.entities.Order;
 import org.springframework.http.ResponseEntity;
 
-import com.ondev.order.entities.Order;
-
-import java.util.List;
 import java.util.Map;
 
 public interface IOrderService {
