@@ -9,7 +9,6 @@ import java.util.List;
 
 @FeignClient(name="microservice-product",url = "localhost:8084")
 public interface ProductProxy {
-
     @PostMapping("/api/product/getAllProductsByIds")
      List<ProductBean> getProductsByIds(@RequestBody List<Long> ids);
 }
